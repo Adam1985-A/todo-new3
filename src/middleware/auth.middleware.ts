@@ -1,6 +1,9 @@
 import jwt from "jsonwebtoken";
 import type { Request, Response, NextFunction } from "express";
 
+interface AuthRequest extends Request {
+  userId?: number;
+}
 export default function AuthMiddleware(req: Request, res: Response, next: NextFunction){
   const authHeader = req.headers.authorization;
 
@@ -15,7 +18,7 @@ return res.status(401).json({message: "Authorization headers missing"});
   }
   try{
 const decoded = jwt.verify(token, process.env.JWT_SECRET as string)as 
-{userId?: number};
+{userId: number};
 req.userId = decoded.userId;
 next();
   }catch(error){
