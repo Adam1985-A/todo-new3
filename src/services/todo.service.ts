@@ -1,6 +1,6 @@
 import { DataSource } from "typeorm";
 import { TodoEntity } from "../entities/todo.entity.js";
-import AppDataSource from "../database/data-source";
+import AppDataSource from "../database/data-source.js";
 
 export class TodoService {
   private todoRepository = AppDataSource.getRepository(TodoEntity);

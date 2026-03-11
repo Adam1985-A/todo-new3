@@ -15,8 +15,8 @@ return res.status(401).json({message: "Authorization headers missing"});
   }
   try{
 const decoded = jwt.verify(token, process.env.JWT_SECRET as string)as 
-{userId: number};
-(req as Request & {userId; number}).userId = decoded.userId
+{userId?: number};
+req.userId = decoded.userId;
 next();
   }catch(error){
     return res.status(401).json({message: "invalid token"});
