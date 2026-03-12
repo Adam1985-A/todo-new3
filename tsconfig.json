@@ -2,7 +2,7 @@
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "esModuleInterop": true,
     "emitDecoratorMetadata": false,
     "strictPropertyInitialization": false,
@@ -14,7 +14,7 @@
     // See also https://aka.ms/tsconfig/module
     "module": "nodenext",
     "target": "es2022",
-    "types": ["node"],
+    "types": ["node", "express"],
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],
@@ -22,8 +22,8 @@
 
     // Other Outputs
     "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
+    "declaration": false,
+    "declarationMap": false,
 
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
